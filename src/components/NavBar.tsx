@@ -16,6 +16,10 @@ export default function NavBar() {
     const [isLogin, setIsLogin] = useState(true)
     const [isOffCanvasOpen, setIsOffCanvasOpen] = useState(false);
 
+    const [modalRoot, setModalRoot] = useState<any>(null)
+    const [offCanvasRoot, setOffCanvasRoot] = useState<any>(null)
+
+
     const openModal = () => {
         setIsModalOpen(true);
     };
@@ -32,8 +36,11 @@ export default function NavBar() {
         setIsOffCanvasOpen(false);
     };
 
-    const modalRoot = document.querySelector('#modal-root');
-    const offCanvasRoot = document.querySelector('#offcanvas-root');
+
+    useEffect(() => {
+        setModalRoot(document.querySelector('#modal-root'))
+        setOffCanvasRoot(document.querySelector('#offcanvas-root'))
+    }, [])
 
     return (
         <div className="px-4 md:px-10 flex items-center justify-between w-full h-14 dark:bg-darkbase dark:text-darksub bg-base text-point">
