@@ -46,7 +46,7 @@ export default function NavBar() {
         <div className="px-4 md:px-10 flex items-center justify-between w-full h-14 dark:bg-darkbase dark:text-darksub bg-base text-point">
             <div>
                 <a href="/list" className="font-bold">
-                    아 뭐였더라?
+                    아 뭐였더라? (배포판)
                 </a>
             </div>
             <div>

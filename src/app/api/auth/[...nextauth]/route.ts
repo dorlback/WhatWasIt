@@ -38,7 +38,7 @@ const handler = NextAuth({
       clientSecret: GOOGLE_CLIENT_SECRET,
     }),
   ],
-  secret: process.env.NEXTAUTH_SECRET,
+
   callbacks: {
     async signIn({ user, account, profile }) {
       // 로그인 성공 시 호출되는 콜백
@@ -78,6 +78,7 @@ const handler = NextAuth({
       return token;
     },
   },
+  secret: process.env.NEXTAUTH_SECRET,
 });
 
 export { handler as GET, handler as POST };
