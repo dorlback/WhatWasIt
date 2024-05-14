@@ -2,32 +2,35 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+.theme-dark {
+  --color-base: #1f2b1a;
+  --color-main: #43533d;
+  --color-sub: #ffffff;
+  --color-point: #ffc64f;
+}
+
+.theme-light {
+  --color-base: #abc270;
+  --color-main: #fec868;
+  --color-sub: #fda769;
+  --color-point: #463c33;
+}
+
+.theme-purple {
+  --color-base: #312c51;
+  --color-main: #48426d;
+  --color-sub: #f0c38e;
+  --color-point: #f1aa9b;
+}
+
+html,
+body {
+  overflow: hidden;
+  overscroll-behavior-y: none;
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  .ck-blurred.ck.ck-content.ck-editor__editable.ck-rounded-corners.ck-editor__editable_inline {
+    background-color: #333; /* 다크 모드에서는 어두운 회색 배경 */
   }
 }

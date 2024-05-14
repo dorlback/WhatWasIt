@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Noto_Sans_KR } from "next/font/google";
 import "./globals.css";
+import AuthContext from "./context/AuthContext";
+import NavBar from "@/components/NavBar";
+import Providers from "./Providers";
 
-const inter = Inter({ subsets: ["latin"] });
+const sansKr = Noto_Sans_KR({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,7 +19,21 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <head>
+        <link href="https://cdn.jsdelivr.net/npm/noto-sans-kr@0.1.1/styles.min.css" rel="stylesheet" />
+      </head>
+      <body className={sansKr.className}>
+        <Providers>
+          <AuthContext>
+            <div className="absolute z-50" id={'modal-root'} />
+            <div className="absolute z-50" id={'offcanvas-root'} />
+            <NavBar />
+            <main className="flex flex-col w-screen h-[calc(100vh-56px)] bg-[#e3efde] dark:bg-darkmain overflow-auto ">
+              {children}
+            </main>
+          </AuthContext>
+        </Providers>
+      </body>
     </html>
   );
 }
