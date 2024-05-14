@@ -32,10 +32,8 @@ export default function NavBar() {
         setIsOffCanvasOpen(false);
     };
 
-    useEffect(() => {
-        const modalRoot = document.querySelector('#modal-root');
-        const offCanvasRoot = document.querySelector('#offcanvas-root');
-    }, []);
+    const modalRoot = document.querySelector('#modal-root');
+    const offCanvasRoot = document.querySelector('#offcanvas-root');
 
     return (
         <div className="px-4 md:px-10 flex items-center justify-between w-full h-14 dark:bg-darkbase dark:text-darksub bg-base text-point">
